@@ -30,7 +30,7 @@ This project demonstrates a simple distributed architecture using Docker Compose
 
 1. Clone this repository and navigate to the project directory:
 	 ```sh
-	 git clone <repo-url>
+	 git clone https://github.com/RoBorregos/DockerArchWorkshop.git
 	 cd DockerArchWorkshop
 	 ```
 2. Build and start all services:
