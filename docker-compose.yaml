@@ -1,0 +1,43 @@
+
+services:
+  # 1. El Dashboard de Monitoreo (nuestra app de Python)
+  dashboard:
+    build: .
+    ports:
+      - "5000:5000"
+    networks:
+      - monitor-net
+    hostname: dashboard
+
+  # 2. Los Nodos que vamos a monitorear
+  nodo_1:
+    build: ./workers/.
+    networks:
+      - monitor-net
+    hostname: nodo_1
+    environment:
+      NAME: "nodo_1"
+      TIME: "10"
+
+  nodo_2:
+    build: ./workers/.
+    networks:
+      - monitor-net
+    hostname: nodo_2
+    environment:
+      NAME: "nodo_2"
+      TIME: "15"
+
+  nodo_3:
+    build: ./workers/.
+    networks:
+      - monitor-net
+    hostname: nodo_3
+    environment:
+      NAME: "nodo_3"
+      TIME: "20"
+
+# Definimos la red que compartirán todos los contenedores
+networks:
+  monitor-net:
+    driver: bridge
